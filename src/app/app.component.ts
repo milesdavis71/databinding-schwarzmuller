@@ -28,4 +28,7 @@ export class AppComponent {
       content: blueprintData.serverContent,
     });
   }
+  printArray() {
+    console.log(this.serverElements);
+  }
 }
