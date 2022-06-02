@@ -10,6 +10,11 @@ export class CockpitComponent implements OnInit {
     serverName: string;
     serverContent: string;
   }>();
+  // tslint:disable-next-line:no-output-rename
+  @Output('bpCreated') blueprintCreated = new EventEmitter<{
+    serverName: string;
+    serverContent: string;
+  }>();
   newServerName = '';
   newServerContent = '';
   constructor() {}
@@ -23,5 +28,10 @@ export class CockpitComponent implements OnInit {
     });
   }
 
-  onAddBlueprint() {}
+  onAddBlueprint() {
+    this.blueprintCreated.emit({
+      serverName: this.newServerName,
+      serverContent: this.newServerContent,
+    });
+  }
 }
