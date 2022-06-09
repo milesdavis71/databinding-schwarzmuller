@@ -3,8 +3,6 @@ import {
   Component,
   OnInit,
   Input,
-  OnChanges,
-  SimpleChanges
 } from '@angular/core';
 
 @Component({
@@ -12,21 +10,11 @@ import {
   templateUrl: './server-element.component.html',
   styleUrls: ['./server-element.component.css'],
 })
-export class ServerElementComponent implements OnInit, OnChanges {
+export class ServerElementComponent implements OnInit {
   // prettier-ignore
   // tslint:disable-next-line:no-input-rename
   @Input('srvElement') element: {type: string, name: string, content: string};
-  @Input() name: string;
-  constructor() {
-    console.log('Constructor called');
-  }
+  constructor() {}
 
-  ngOnChanges(changes: SimpleChanges) {
-    console.log('ngOnChanges called');
-    console.log(changes);
-  }
-
-  ngOnInit() {
-    console.log('ngOnInit called');
-  }
+  ngOnInit() {}
 }
