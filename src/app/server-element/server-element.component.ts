@@ -7,7 +7,13 @@ import {
   OnChanges,
   SimpleChanges,
   DoCheck,
-  AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy
+  AfterContentInit,
+  AfterContentChecked,
+  AfterViewInit,
+  AfterViewChecked,
+  OnDestroy,
+  ContentChild,
+  ElementRef
 } from '@angular/core';
 
 @Component({
@@ -31,6 +37,8 @@ export class ServerElementComponent
   // tslint:disable-next-line:no-input-rename
   @Input('srvElement') element: { type: string; name: string; content: string };
   @Input() name: string;
+  @ContentChild('contentParagraph') paragraph: ElementRef;
+
   constructor() {
     console.log('Constructor called');
   }
@@ -50,6 +58,9 @@ export class ServerElementComponent
 
   ngAfterContentInit() {
     console.log('ngAfterContentInit called');
+    console.log(
+      'Text content of paragraph: ' + this.paragraph.nativeElement.textContent
+    );
   }
   ngAfterContentChecked() {
     console.log('ngAfterContentChecked called');
